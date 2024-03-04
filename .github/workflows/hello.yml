@@ -8,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: hello-step
-        run: echo "hello"
+        uses: yuji314159/gha-sample-custom-action@main
