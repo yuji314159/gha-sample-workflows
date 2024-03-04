@@ -2,10 +2,21 @@ name: hello-workflow
 
 on:
   workflow_dispatch:
+    inputs:
+      name:
+        description: your name
+        required: true
+        default: World
+
 
 jobs:
   hello-job:
     runs-on: ubuntu-latest
     steps:
       - name: hello-step
+        id: hello_step
         uses: yuji314159/gha-sample-custom-action@main
+        with:
+          name: ${{ inputs.name }}
+      - name: print-output
+        run: 'echo "Output message: ${{ steps.hello_step.outputs.message }}"'
