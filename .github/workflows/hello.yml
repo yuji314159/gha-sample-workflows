@@ -2,18 +2,10 @@ name: hello-workflow
 
 on:
   workflow_dispatch:
-    inputs:
-      text:
-        required: true
-        default: Hello
-
 
 jobs:
   hello-job:
     runs-on: ubuntu-latest
     steps:
       - name: hello-step
-        id: hello_step
-        uses: yuji314159/figlet-action@main
-        with:
-          text: ${{ inputs.text }}
+        run: echo hello
