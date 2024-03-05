@@ -3,10 +3,9 @@ name: hello-workflow
 on:
   workflow_dispatch:
     inputs:
-      name:
-        description: your name
+      text:
         required: true
-        default: World
+        default: Hello
 
 
 jobs:
@@ -15,8 +14,6 @@ jobs:
     steps:
       - name: hello-step
         id: hello_step
-        uses: yuji314159/gha-sample-custom-action@main
+        uses: yuji314159/figlet-action@main
         with:
-          name: ${{ inputs.name }}
-      - name: print-output
-        run: 'echo "Output message: ${{ steps.hello_step.outputs.message }}"'
+          text: ${{ inputs.text }}
